@@ -164,8 +164,37 @@ namespace Калькулятор
                         textBox1.Text = b.ToString();
                     }
                     break;
+                case 5:
+                    b = Math.Pow(a, double.Parse(textBox1.Text));
+                    textBox1.Text = b.ToString();
+                    break;
+                case 6:
+                    string value = textBox1.Text.Substring(1);
+                    b = Math.Sqrt(double.Parse(value));
+                    textBox1.Text = b.ToString();
+                    break;
             }
+            a = 0;
+            count = 0;
         }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            a = double.Parse(textBox1.Text);
+            textBox1.Clear();
+            count = 5;
+            label1.Text = a.ToString() + "^";
+            log = true;
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+
+            textBox1.Text = "√";
+            count = 6;
+            log = true;
+        }
+
         private void button18_Click(object sender, EventArgs e)
         {
             if (log == true)
