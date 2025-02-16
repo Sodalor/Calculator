@@ -98,40 +98,67 @@ namespace Калькулятор
 
         private void button5_Click(object sender, EventArgs e)
         {
-            a = double.Parse(textBox1.Text);
-            textBox1.Clear();
-            count = 1;
-            label1.Text = a.ToString() + "+";
-            log = true;
+            try
+            {
+                a = double.Parse(textBox1.Text);
+                textBox1.Clear();
+                count = 1;
+                label1.Text = a.ToString() + "+";
+                log = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка ввода: " + ex.Message);
+            }
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            a = double.Parse(textBox1.Text);
-            textBox1.Clear();
-            count = 2;
-            label1.Text = a.ToString() + "-";
-            log = true;
+            try
+            {
+                a = double.Parse(textBox1.Text);
+                textBox1.Clear();
+                count = 2;
+                label1.Text = a.ToString() + "-";
+                log = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка ввода: " + ex.Message);
+            }
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
-            a = double.Parse(textBox1.Text);
-            textBox1.Clear();
-            count = 3;
-            label1.Text = a.ToString() + "*";
-            log = true;
+            try
+            {
+                a = double.Parse(textBox1.Text);
+                textBox1.Clear();
+                count = 3;
+                label1.Text = a.ToString() + "*";
+                log = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка ввода: " + ex.Message);
+            }
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
-            a = double.Parse(textBox1.Text);
-            textBox1.Clear();
-            count = 4;
-            label1.Text = a.ToString() + "/";
-            log = true;
+            try
+            {
+                a = double.Parse(textBox1.Text);
+                textBox1.Clear();
+                count = 4;
+                label1.Text = a.ToString() + "/";
+                log = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка ввода: " + ex.Message);
+            }
         }
-        
         private void button4_Click(object sender, EventArgs e)
         {
             calc();
@@ -139,60 +166,85 @@ namespace Калькулятор
         }
         private void calc()
         {
-            switch (count)
+            try
             {
-                case 1:
-                    b = a + double.Parse(textBox1.Text);
-                    textBox1.Text = b.ToString();
-                    break;
-                case 2:
-                    b = a - double.Parse(textBox1.Text);
-                    textBox1.Text = b.ToString();
-                    break;
-                case 3:
-                    b = a * double.Parse(textBox1.Text);
-                    textBox1.Text = b.ToString();
-                    break;
-                case 4:
-                    if (double.Parse(textBox1.Text) == 0)
-                    {
-                        textBox1.Text = "Ошибка: Деление на ноль";
-                    }
-                    else
-                    {
-                        b = a / double.Parse(textBox1.Text);
+                switch (count)
+                {
+                    case 1:
+                        b = a + double.Parse(textBox1.Text);
                         textBox1.Text = b.ToString();
-                    }
-                    break;
-                case 5:
-                    b = Math.Pow(a, double.Parse(textBox1.Text));
-                    textBox1.Text = b.ToString();
-                    break;
-                case 6:
-                    string value = textBox1.Text.Substring(1);
-                    b = Math.Sqrt(double.Parse(value));
-                    textBox1.Text = b.ToString();
-                    break;
+                        break;
+                    case 2:
+                        b = a - double.Parse(textBox1.Text);
+                        textBox1.Text = b.ToString();
+                        break;
+                    case 3:
+                        b = a * double.Parse(textBox1.Text);
+                        textBox1.Text = b.ToString();
+                        break;
+                    case 4:
+                        if (double.Parse(textBox1.Text) == 0)
+                        {
+                            textBox1.Text = "Ошибка: Деление на ноль";
+                        }
+                        else
+                        {
+                            b = a / double.Parse(textBox1.Text);
+                            textBox1.Text = b.ToString();
+                        }
+                        break;
+                    case 5:
+                        b = Math.Pow(a, double.Parse(textBox1.Text));
+                        textBox1.Text = b.ToString();
+                        break;
+                    case 6:
+                        string value = textBox1.Text.Substring(1);
+                        b = Math.Sqrt(double.Parse(value));
+                        textBox1.Text = b.ToString();
+                        break;
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Ошибка: Неверный формат числа");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка: " + ex.Message);
             }
             a = 0;
             count = 0;
+
         }
 
         private void button20_Click(object sender, EventArgs e)
         {
-            a = double.Parse(textBox1.Text);
-            textBox1.Clear();
-            count = 5;
-            label1.Text = a.ToString() + "^";
-            log = true;
+            try
+            {
+                a = double.Parse(textBox1.Text);
+                textBox1.Clear();
+                count = 5;
+                label1.Text = a.ToString() + "^";
+                log = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка ввода: " + ex.Message);
+            }
         }
 
         private void button21_Click(object sender, EventArgs e)
         {
-
-            textBox1.Text = "√";
-            count = 6;
-            log = true;
+            try
+            {
+                textBox1.Text = "√";
+                count = 6;
+                log = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка ввода: " + ex.Message);
+            }
         }
 
         private void button18_Click(object sender, EventArgs e)
